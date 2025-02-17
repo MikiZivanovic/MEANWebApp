@@ -1,0 +1,24 @@
+<div class="menu-item-container">
+            
+    <div class="menu-item">
+        <div >
+            <img src = "http://localhost:5000/{{wine.imageCover}}" />
+        </div>
+        
+
+        <div class="menu-item-info">
+            <span class="menu-item-name">
+               {{wine.name}}
+            </span>
+            <div class="menu-item-stil">
+                <span>{{wine.styles[0].name}}</span>
+                <span>{{wine.price}}din</span>
+            </div>
+            <div class="menu-item-stil">
+                <span>{{wine.varieties.name}}</span>
+                <button class="secondary"  >+</button>
+            </div>               
+        </div>
+
+    </div>    
+</div>  

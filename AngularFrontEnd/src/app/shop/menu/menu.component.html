@@ -1,0 +1,24 @@
+
+<div class = "menu">
+    <div class = "menu-container">
+        
+       <app-menu-item *ngFor="let wine of filteredWines"  [wine]="wine" ></app-menu-item>
+    </div>
+</div>
+<div class="pagination">
+    <button 
+       [disabled]="page()===1"
+       (click)="pageDown()"
+    >
+        Nazad
+    </button>
+    <span>Strana {{page()}} od {{pageCount}}</span>
+    <button 
+   
+    [disabled] = "pageCount===page()"
+    (click)="pageUp()"
+       
+    >
+        Napred
+    </button>
+</div>

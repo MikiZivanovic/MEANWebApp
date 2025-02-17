@@ -1,0 +1,18 @@
+<div>
+    <div class="left-container">
+                        <div class="style-box">
+                            <div class="style-title">
+                                <span >Stil</span>
+                            </div>
+                            <app-filter-item *ngFor="let style of styles" [name]="style.name" [type]="'stil'"></app-filter-item>
+                            
+                        </div>
+                        <div class="style-box">
+                            <div class="style-title">
+                                <span >Sorta</span>
+                            </div>
+                            <app-filter-item *ngFor="let variety of varieties" [name]="variety.name" [type]="'sort'"></app-filter-item>
+                            
+                        </div>    
+                    </div>
+</div>
