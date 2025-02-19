@@ -7,7 +7,7 @@ interface Position{
 }
 
 export interface Wine{
-    id:string,
+    _id:string,
     name:string,
     year :number,
     imageCover:string,

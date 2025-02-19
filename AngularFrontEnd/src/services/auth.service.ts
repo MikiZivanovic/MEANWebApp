@@ -1,6 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable, signal } from "@angular/core";
+import { error } from "console";
 import { CookieService } from "ngx-cookie-service";
+import { catchError, of, tap, throwError } from "rxjs";
 
 interface User{
     id:string,
@@ -17,18 +19,24 @@ export class AuthService{
     
     signIn(name:string,password:string,email:string){
 
-        this.http.post<{token:string,user:User}>("http://localhost:5000/api/v1/users/signup",{name,password,email}).subscribe((res)=>{
-            this.user.set(res.user);
-            this.cookieService.set("jwt",res.token,7);
-            
-        })
+        return this.http.post<{token:string,user:User}>("http://localhost:5000/api/v1/users/signup",{name,password,email}).pipe(
+            tap(res=>{
+                this.user.set(res.user);
+                 this.cookieService.set("jwt",res.token,7);
+            }),
+            catchError(
+                (err)=>{ return  throwError(()=>err); })
+        )
     }
     logIn(email:string,password:string){
-        this.http.post<{token:string,user:User}>("http://localhost:5000/api/v1/users/login",{email,password}).subscribe((res)=>{
-            this.user.set(res.user);
-            this.cookieService.set("jwt",res.token,7);
-            
-        })
+        return this.http.post<{token:string,user:User}>("http://localhost:5000/api/v1/users/login",{email,password}).pipe(
+            tap(res=>{
+                this.user.set(res.user);
+                 this.cookieService.set("jwt",res.token,7);
+            }),
+            catchError(
+                (err)=>{ return  throwError(()=>err); })
+        )
         
     }
     logOut(){

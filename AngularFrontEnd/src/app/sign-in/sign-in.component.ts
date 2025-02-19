@@ -13,10 +13,24 @@ export class SignInComponent {
 
   private authService = inject(AuthService)
   location = inject(Location)
+  
 
 
  onSubmit(form:NgForm){
-    this.authService.signIn(form.value.name,form.value.password,form.value.email);
-    form.reset();
+
+    if(!form  || !form.valid){
+      alert(`Niste uneli validne podatke, pokusajte ponovo`);
+      return;
+    }
+    this.authService.signIn(form.value.name,form.value.password,form.value.email).subscribe({
+      next:()=>{
+        form.reset();
+        this.location.back();
+      },
+      error:(err)=>{
+        alert(`Greška: ${err.error?.message || "Došlo je do greške pri kreiranju korisnika."}`);
+      }
+    });
+   
   }
 }

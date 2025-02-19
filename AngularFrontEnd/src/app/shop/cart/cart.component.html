@@ -1,1 +1,23 @@
-<p>cart works!</p>
+<div class="cart">
+    <div class="style-title">
+        <span >Korpa</span>
+    </div>
+<div class="cart-container">
+    
+    <div class="cart-items-container">
+       <app-cart-item *ngFor="let item of items()" [item]="item"></app-cart-item>
+    </div>
+    <div >
+       
+        <div class="cart-order" *ngIf="totalcount()>0"> 
+            <span>Ukupna cena:{{(totalprice())}} rsd</span>
+            <button class="primary" (click)="createOrder()">
+            Poruci
+            </button>
+            <button class="secondary" (click)="deleteCart()"> Obrisi sve </button> 
+        </div>
+       
+        
+    </div>
+</div>
+</div>

@@ -14,13 +14,13 @@
         </div>
    
         <app-menu></app-menu>
-      
+        <app-cart></app-cart>
        
     </div>
     
-
+    <app-modal *ngIf="error!==undefined" [message]="error" [type]="'error'"></app-modal>
     
-     
+    <app-modal *ngIf="confirmMessage()!==undefined" [message]="confirmMessage()" [type]="'message'"></app-modal> 
     
 
 </div>

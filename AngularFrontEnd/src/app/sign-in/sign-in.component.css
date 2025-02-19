@@ -29,4 +29,29 @@
     display: flex;
     justify-content: space-between;
   }
+  .buton {
+    color: inherit;
+    text-transform: uppercase;
+    padding: 0.8rem 1.6rem;
+    font-family: inherit;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   
+  .primary {
+    font-weight: 700;
+    background-color: rgb(138, 7, 7);
+    box-shadow: 5px 5px;
+    color: var(--color-dark--1);
+    transition: border-color 0.3s ease;
+  }
+  
+  .back {
+    font-weight: 600;
+    background: none;
+    box-shadow: 2px 2px;
+    border: 1px solid currentColor;
+    transition: border-color 0.3s ease;
+  }

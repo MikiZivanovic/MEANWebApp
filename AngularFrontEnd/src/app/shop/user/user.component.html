@@ -1,11 +1,18 @@
 <div class="user">
     <span>{{authService.user() !== null ?  "Dobrodošli"+authService.user()?.name : "Ulogujte se" }} </span> 
 
-    <div class="buttons">
-         <button routerLink="/signin">SignUp</button>
+   
+        <div *ngIf="authService.user() === null; else logout " class="buttons">
+        <button routerLink="/signin">SignUp</button>
         <button routerLink="/login">Login</button>
-    </div>
+        </div>  
+        <ng-template #logout>
+            <button (click)="authService.logOut()">Logout</button> 
+        </ng-template>
+        
+    
+    
      
-   <button (click)="authService.logOut()">Logout</button> 
+   
    
   </div>
