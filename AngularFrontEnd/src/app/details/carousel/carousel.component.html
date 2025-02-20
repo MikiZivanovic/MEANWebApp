@@ -1,0 +1,33 @@
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  
+    <ol class="carousel-indicators">
+      <li *ngFor="let img of images; index as i" 
+          [class.active]="i === activeIndex"
+          (click)="setActive(i)"
+          data-bs-target="#myCarousel"
+          [attr.data-bs-slide-to]="i">
+      </li>
+    </ol>
+  
+    
+    <div class="carousel-inner">
+      <div *ngFor="let img of images; index as i" class="carousel-item" [ngClass]="{ 'active': i === activeIndex }">
+        <img [src]="'http://localhost:5000/' + img" class="d-block w-100" alt="Wine photo"
+             style="max-height: 400px; object-fit: contain;">
+        <div class="carousel-caption">
+          
+        </div>
+      </div>
+    </div>
+  
+    
+    <a class="carousel-control-prev" role="button" (click)="handlePrev()">
+      <span class="carousel-control-prev-icon" style="background-color: black;"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next"  role="button" (click)="handleNext()">
+      <span class="carousel-control-next-icon" style="background-color: black;"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+  

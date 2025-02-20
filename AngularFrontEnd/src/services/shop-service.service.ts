@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, tap } from 'rxjs';
-import { Wine } from '../models/wine.model';
-import { Style } from '../models/style.model';
-import { Variety } from '../models/variety.model';
+import { Wine } from '../app/models/wine.model';
+import { Style } from '../app/models/style.model';
+import { Variety } from '../app/models/variety.model';
 @Injectable({
   providedIn: 'root'
 })

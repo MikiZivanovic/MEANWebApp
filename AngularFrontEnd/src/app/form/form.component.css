@@ -1,0 +1,125 @@
+.container {
+    max-width: 800px;
+    margin: 80px auto 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333; 
+    color: white; 
+    padding: 30px 20px; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    z-index: 1000; 
+  }
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .formGroup label {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .input,
+  .select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .input:focus,
+  .select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+  
+  .expoGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .addButton,
+  .removeButton,
+  .button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .addButton {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .addButton:hover {
+    background-color: #218838;
+  }
+  
+  .removeButton {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .removeButton:hover {
+    background-color: #c82333;
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  .success {
+    color: #28a745;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .expoGroup {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  

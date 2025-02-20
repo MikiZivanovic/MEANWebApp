@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ShopServiceService } from '../shop-service.service';
+import { ShopServiceService } from '../../../services/shop-service.service';
 import { Wine } from '../../models/wine.model';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { NgFor } from '@angular/common';

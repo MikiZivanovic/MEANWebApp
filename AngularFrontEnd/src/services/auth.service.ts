@@ -6,7 +6,8 @@ import { catchError, of, tap, throwError } from "rxjs";
 
 interface User{
     id:string,
-    name:string
+    name:string,
+    role:string
 }
 
 @Injectable({providedIn:"root"})

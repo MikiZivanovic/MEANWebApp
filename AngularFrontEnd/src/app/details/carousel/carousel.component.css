@@ -1,0 +1,6 @@
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.carousel img {
+    max-height: 500px;
+    object-fit: contain;
+  }

@@ -1,7 +1,7 @@
 import { Style } from "./style.model";
 import { Variety } from "./variety.model";
 
-interface Position{
+export interface Position{
     latitude:number,
     longitude:number
 }

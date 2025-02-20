@@ -1,0 +1,109 @@
+<div class="container">
+    <div class="navbar">
+      <button (click)="router.navigate(['/shop'])" class="button">← Nazad</button>
+    </div>
+  
+    <h1 class="title">Dodaj vino</h1>
+  
+    <form [formGroup]="wineForm" (ngSubmit)="onSubmit()" class="form">
+      
+      <div class="formGroup">
+        <label for="name">Naziv vina</label>
+        <input id="name" formControlName="name" class="input" required />
+      </div>
+ 
+      <div class="formGroup">
+        <label for="year">Godina berbe</label>
+        <input type="number" id="year" formControlName="year" class="input" required />
+      </div>
+  
+      
+      <div class="formGroup">
+        <label for="origin">Država porekla</label>
+        <input id="origin" formControlName="origin" class="input" required />
+      </div>
+  
+    
+      <div class="formGroup">
+        <label for="description">Opis</label>
+        <textarea id="description" formControlName="description" class="input" required></textarea>
+      </div>
+ 
+      <div class="formGroup">
+        <label for="price">Cena</label>
+        <input type="number" id="price" formControlName="price" class="input" required />
+      </div>
+  
+      
+      <div class="formGroup">
+        <label for="quantityState">Količina na stanju</label>
+        <input type="number" id="quantityState" formControlName="quantityState" class="input" required />
+      </div>
+  
+      <div class="formGroup">
+        <label for="volume">Litraža (ml)</label>
+        <input type="number" id="volume" formControlName="volume" class="input" required />
+      </div>
+  
+     
+      <div class="formGroup">
+        <label for="alcohol">Procenat alkohola</label>
+        <input type="number" id="alcohol" formControlName="alcohol" class="input" required />
+      </div>
+  
+      
+      <div class="formGroup">
+        <label for="styles">Stil</label>
+        <select id="styles" formControlName="styles" multiple class="select" required>
+          <option *ngFor="let style of stylesArray" [value]="style.id">{{ style.name }}</option>
+        </select>
+      </div>
+  
+    
+      <div class="formGroup">
+        <label for="varieties">Sorta</label>
+        <select id="varieties" formControlName="varieties" multiple class="select" required>
+          <option *ngFor="let variety of varietiesArray" [value]="variety.id">{{ variety.name }}</option>
+        </select>
+      </div>
+  
+      
+      <div class="formGroup">
+        <label>Ekspoziture</label>
+        <div *ngFor="let expoCtrl of expoArray.controls; let i = index" class="expoGroup" [formGroup]="getFormGroup(expoCtrl)">
+
+          <input type="number" formControlName="latitude" placeholder="Latitude" class="input" required />
+          <input type="number" formControlName="longitude" placeholder="Longitude" class="input" required />
+          <button type="button" (click)="removeExpo(i)" class="removeButton">Odbaci</button>
+        </div>
+        <button type="button" (click)="addExpo()" class="addButton">Dodaj lokaciju</button>
+      </div>
+  
+      <div class="formGroup">
+        <label for="imageCover">Pozadinska slika</label>
+        <input type="file" id="imageCover" (change)="onFileSelected($event)" class="input" required />
+        <img *ngIf="selectedCover?.url" [src]="selectedCover?.url" width="150" />
+      </div>
+  
+      <div class="formGroup">
+        <label for="images">Dodatne fotografije</label>
+        <input type="file" id="images" multiple (change)="handleImageChange($event)" class="input" />
+      </div>
+  
+      <div *ngIf="selectedImages.length" class="imagePreview">
+        <div *ngFor="let img of selectedImages; let i = index" class="imageWrapper">
+          <img [src]="img.url" width="100" />
+          <button type="button" (click)="removeImage(i)" class="removeButton">Odbaci</button>
+        </div>
+      </div>
+  
+  
+      
+      <button type="submit" class="button" [disabled]="uploading">
+        {{ uploading ? "Dodavanje..." : "Dodaj vino" }}
+      </button>
+  
+      
+      <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+    </form>
+  </div>

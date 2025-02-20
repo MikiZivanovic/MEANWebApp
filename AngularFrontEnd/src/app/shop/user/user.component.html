@@ -5,7 +5,9 @@
         <div *ngIf="authService.user() === null; else logout " class="buttons">
         <button routerLink="/signin">SignUp</button>
         <button routerLink="/login">Login</button>
-        </div>  
+       
+        </div> 
+        <button *ngIf="authService.user()?.role === 'admin'" routerLink="/addWine">AddWine</button> 
         <ng-template #logout>
             <button (click)="authService.logOut()">Logout</button> 
         </ng-template>

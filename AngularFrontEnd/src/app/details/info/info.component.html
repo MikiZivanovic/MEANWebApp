@@ -1,0 +1,18 @@
+<div class="container">
+    <button class="backButton" (click)="location.back()">← Nazad</button>
+
+    <h1 class="title">{{wine?.name}}</h1>
+    <p class="type">{{ styles}} | {{wine?.year}}</p>
+
+    <p class="description">{{wine?.description}}</p>
+
+    <div class="details">
+        <h3>Detalji proizvoda</h3>
+        <ul>
+            <li><strong>Origin:</strong> {{wine?.origin}}</li>
+            <li><strong>Alcohol:</strong> {{wine?.alcohol}}%</li>
+            <li><strong>Grape Variety:</strong> {{wine?.varieties?.name}}</li>
+            <li><strong>Volume:</strong> {{wine?.volume}}ml</li>
+        </ul>
+    </div>
+</div>

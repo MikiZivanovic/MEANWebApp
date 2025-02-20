@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ShopServiceService } from '../shop-service.service';
+import { ShopServiceService } from '../../../services/shop-service.service';
 import { Style } from '../../models/style.model';
 import { NgFor } from '@angular/common';
 import { FilterItemComponent } from './filter-item/filter-item.component';
