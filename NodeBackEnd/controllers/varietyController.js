@@ -3,7 +3,7 @@ const Variety = require("../models/varietyModel");
 exports.getVarieties = async (req, res) => {
   const varietis = await Variety.find();
   res.status(200).json({
-    status: "success",
+    
     varities: varietis,
   });
 };

@@ -5,7 +5,7 @@ class ApiFeatures {
     }
     
     pagination() {
-        if (this.queryObjectString.page) {
+        if (this.queryObjectString.page || this.queryObjectString.limit ) {
             const page = this.queryObjectString.page * 1 || 1;
             const limit = this.queryObjectString.limit * 1 || 4;
             const skip = (page - 1) * limit;

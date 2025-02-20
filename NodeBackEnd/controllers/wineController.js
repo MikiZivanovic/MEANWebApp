@@ -112,8 +112,9 @@ multerFilter = (req, file, cb) => {
    
     const data  = await Wine.findById(req.params.id);
     
-    const wine = await Wine.populate(data, { path: "varieties" });
+    const winevar = await Wine.populate(data, { path: "varieties" });
 
+    const wine = await   Wine.populate(winevar, { path: "styles" });
     res.status(200).json({wine});
   }
   
